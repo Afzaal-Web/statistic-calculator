@@ -1,23 +1,122 @@
-body {
+/* Reset and base styles */
+* {
+  box-sizing: border-box;
   margin: 0;
-  background-color: rgb(27, 27, 50);
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: linear-gradient(to right, #dfe9f3, #ffffff);
+  color: #333;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Heading */
+h1 {
+  color: #2c3e50;
+  margin-bottom: 1rem;
+  font-size: 2.5rem;
   text-align: center;
-  color: #fff;
+}
+
+/* Paragraphs */
+p {
+  line-height: 1.6;
+  max-width: 700px;
+}
+
+/* Form Styling */
+form {
+  background-color: #ffffff;
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  max-width: 500px;
+}
+
+label {
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+input[type="text"] {
+  padding: 0.6rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 100%;
+  font-size: 1rem;
+  background-color: #f1f1f1;
+  color: #2c3e50;
 }
 
 button {
-  cursor: pointer;
-  background-color: rgb(59, 59, 79);
-  border: 3px solid white;
+  padding: 0.6rem 1.2rem;
+  background-color: #3498db;
   color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
 }
 
-input {
-  background-color: rgb(10, 10, 35);
-  color: white;
-  border: 1px solid rgb(59, 59, 79);
+button:hover {
+  background-color: #2980b9;
+}
+
+/* Results Layout */
+.results {
+  background-color: #ffffff;
+  margin-top: 2rem;
+  padding: 2rem;
+  border-radius: 16px;
+  max-width: 900px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.results p {
+  background-color: #f5faff;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
 }
 
 .bold {
   font-weight: bold;
+  color: #2c3e50;
+  margin-top: 0.5rem;
+  font-size: 1.05rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .results {
+    grid-template-columns: 1fr;
+  }
+
+  input[type="text"] {
+    width: 100%;
+  }
+
+  form {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
 }
