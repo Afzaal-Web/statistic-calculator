@@ -1,12 +1,3 @@
-/* The .reduce() method in JavaScript is used to combine all elements of an array into
- a single value — like a total, a product, a string, or even an object. 
-
- acc = accumulator (starts as 0 here)
-curr = current array item
-It adds each item to the accumulator
-The **0** at the end is the initial value of the accumulator (acc).
-
- */
 const getMean = (array) => array.reduce((acc, el) => acc + el, 0) / array.length;
 
 const getMedian = (array) => {
@@ -20,16 +11,18 @@ const getMedian = (array) => {
 
 const getMode = (array) => {
   const counts = {};
-  array.forEach(el => {
-if(counts[el]){
-  counts[el] += 1;
-}
-else{
-  counts[el] = 1;
-}
+  array.forEach((el) => {
+    counts[el] = (counts[el] || 0) + 1;
   })
-  return counts;
+  if (new Set(Object.values(counts)).size === 1) {
+    return null;
+  }
+  const highest = Object.keys(counts).sort(
+    (a, b) => counts[b] - counts[a]
+  )[0];
+
 }
+
 
 const calculate = () => {
   const value = document.querySelector("#numbers").value;
@@ -38,9 +31,7 @@ const calculate = () => {
   
   const mean = getMean(numbers);
   const median = getMedian(numbers);
-  console.log(getMode(numbers));
 
   document.querySelector("#mean").textContent = mean;
   document.querySelector("#median").textContent = median;
 }
-
