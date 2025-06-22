@@ -10,13 +10,19 @@
   <body>
     <h1>Statistics Calculator</h1>
     <p>Enter a list of comma-separated numbers.</p>
-
+    <div class="calculator-container">
     <form onsubmit="calculate(); return false;">
       <label for="numbers">Numbers:</label>
       <input type="text" name="numbers" id="numbers" />
       <button type="submit">Calculate</button>
     </form>
     <div class="results">
+      <p class="bold">
+       Explanation
+      </p>
+      <p class="bold">
+       Results
+      </p>
       <p>
         The <dfn>mean</dfn> of a list of numbers is the average, calculated by
         taking the sum of all numbers and dividing that by the count of numbers.
@@ -50,5 +56,6 @@
         Standard Deviation: <span id="standardDeviation"></span>
       </p>
     </div>
+  </div>
   </body>
 </html>
