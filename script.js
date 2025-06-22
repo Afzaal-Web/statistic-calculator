@@ -49,23 +49,28 @@ const getMedian = (array) => {
 const getMode = (array) => {
   const counts = {};
   array.forEach(el => counts[el] = counts[el] ? counts[el] + 1 : 1);
-  console.log("Keys =", Object.keys(counts));
-console.log("Values =", Object.values(counts));
+  if (new Set(Object.values(counts)).size === 1) {
+    return null;
+  }
+  console.log('keys: ', Object.keys(counts));
+  console.log('Values: ', Object.values(counts));
+  const highest = Object.keys(counts).sort((a,b) => counts[b] - counts[a])[0];
+  const mode = Object.keys(counts).filter((el) => counts[el] === counts[highest]);
+  console.log(mode)
+  return mode.join(', ');
 }
 
 const calculate = () => {
   const value = document.querySelector("#numbers").value;
-  // const array = value.split(/,\s*/g);
-  const array = value.split('');
-  console.log(array);
+  const array = value.split(/,\s*/g);
+  // const array = value.split('');
   const numbers = array.map(el => Number(el)).filter(el => !isNaN(el));
- console.log(numbers)
+
   const mean = getMean(numbers);
   const median = getMedian(numbers);
-  getMode(numbers);
+ const mode = getMode(numbers);
+
   document.querySelector("#mean").textContent = mean;
   document.querySelector("#median").textContent = median;
+  document.querySelector("#mode").textContent = mode;
 }
-
-
-
